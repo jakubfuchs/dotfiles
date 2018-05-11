@@ -191,6 +191,7 @@ exec_always xcompmgr -n
 ## Start-up
 exec firefox 
 exec emacs
+## start ranger via terminal
 exec --no-startup-id i3-msg workspace $workspace2; exec gnome-terminal -e ranger
 exec google-play-music-desktop-player
 
