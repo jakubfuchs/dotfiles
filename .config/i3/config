@@ -96,6 +96,7 @@ bindsym $mod+a focus parent
 set $workspace1 "1firefox"
 set $workspace2 "2ranger"
 set $workspace3 "3emacs"
+set $workspace10 "10music"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -107,7 +108,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -119,13 +120,14 @@ bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
 ## Workspace assignements
 ## get calls by $ xprop
 assign [class="Emacs"] $workspace3
 assign [class="Nautilus"] $workspace2
 assign [class="Firefox"] $workspace1
+assign [class="Google Play Music Desktop Player"] $workspace10
 
 
 # reload the configuration file
@@ -190,6 +192,7 @@ exec_always xcompmgr -n
 exec firefox 
 exec emacs
 exec --no-startup-id i3-msg workspace $workspace2; exec gnome-terminal -e ranger
+exec google-play-music-desktop-player
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
