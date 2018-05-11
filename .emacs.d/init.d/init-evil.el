@@ -7,6 +7,8 @@
     ;; "," 'helm-projectile-find-file
     ;; "p" 'helm-projectile-switch-project
     ;; "t" 'direx-project:jump-to-project-root
+    "o" 'delete-other-windows
+    "O" 'delete-other-frames
     "p" 'paredit-mode
     "T" 'toggle-transparency
     "t" 'toggle-truncate-lines
