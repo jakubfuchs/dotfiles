@@ -108,6 +108,7 @@
   (global-set-key [escape] 'keyboard-quit)
 
 
+  (define-key evil-insert-state-map (kbd "M-L") 'company-complete)
   (define-key evil-insert-state-map (kbd "M-l") 'company-capf)
 )
 
