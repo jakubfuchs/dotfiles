@@ -193,7 +193,7 @@ exec firefox
 exec emacs
 ## start ranger via terminal
 exec --no-startup-id i3-msg workspace $workspace2; exec gnome-terminal -e ranger
-exec google-play-music-desktop-player
+## exec google-play-music-desktop-player
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
