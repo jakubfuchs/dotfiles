@@ -21,16 +21,26 @@
   (interactive)
   ;; set main java method
   (evil-ex-substitute
-   (- (point) 9)
+   (- (point) 5)
    (point)
-   (list "java-main")
+   (list "jmain")
    "public static void main(String[] args) {\n}")
   ;; set println
   (evil-ex-substitute
    (point)
-   (+ (point) 6)
-   (list "Sysout")
+   (+ (point) 7)
+   (list "println")
    "System.out.println();")
+  (evil-ex-substitute
+   (point)
+   (+ (point) 5)
+   (list "print")
+   "System.out.print();")
+  (evil-ex-substitute
+   (point)
+   (+ (point) 4)
+   (list "fori")
+   "for (int i = 0; i < xx; i++) {\n}")
   (evil-normal-state)
   (evil-end-of-line)
   (indent-according-to-mode))

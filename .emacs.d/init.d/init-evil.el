@@ -38,8 +38,8 @@
   
   ;; mapping for elisp scratch
   (evil-leader/set-key-for-mode 'lisp-interaction-mode
-    ")" 'elisp-my-print-last-sexp
-    "." 'eval-defun
+    "." 'elisp-my-print-last-sexp
+    ")" 'eval-defun
     "e" 'eval-buffer)
 
   (defun elisp-my-print-last-sexp ()
@@ -108,8 +108,9 @@
   (global-set-key [escape] 'keyboard-quit)
 
 
-  (define-key evil-insert-state-map (kbd "M-L") 'company-complete)
-  (define-key evil-insert-state-map (kbd "M-l") 'company-capf)
+  (define-key evil-insert-state-map (kbd "M-l") 'company-complete)
+  (define-key evil-insert-state-map (kbd "M-L") 'complete-symbol)
+  ;;(define-key evil-insert-state-map (kbd "M-L") 'company-capf)
 )
 
 (use-package evil
