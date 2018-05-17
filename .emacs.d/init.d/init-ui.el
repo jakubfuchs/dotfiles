@@ -58,6 +58,8 @@
 
 ;; Themes
 (cond
+ ((find-font (font-spec :name "Menlo"))
+  (set-face-font 'default "Menlo-10"))
  ((find-font (font-spec :name "DejaVu Sans Mono"))
   (set-face-font 'default "DejaVu Sans Mono-10"))
  ((find-font (font-spec :name "inconsolata-notused"))

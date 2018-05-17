@@ -12,11 +12,11 @@
 
   (add-hook 'java-mode-hook 'my-java-mode-hook)
   (custom-set-variables
-   '(eclim-eclipse-dirs '("~/eclipse/eclipse"))
+   '(eclim-eclipse-dirs '("~/eclipse"))
    '(eclim-executable "~/eclipse/plugins/org.eclim_2.7.2/bin/eclim")
   ))
 
-(defun eclim-my-java-macro ()
+(defun my-java-macro ()
   ;; type string and get it replace upon M-RET.
   (interactive)
   ;; set main java method
@@ -44,6 +44,6 @@
   (evil-normal-state)
   (evil-end-of-line)
   (indent-according-to-mode))
-(define-key evil-insert-state-map (kbd "M-RET") 'eclim-my-java-macro)
+(define-key evil-insert-state-map (kbd "M-RET") 'my-java-macro)
 
 (provide 'init-eclim-java)

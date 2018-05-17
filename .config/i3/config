@@ -101,8 +101,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-set $workspace1 "1firefox"
-set $workspace2 "2ranger"
+set $workspace1 "1"
+set $workspace2 "2"
 set $workspace3 "3"
 set $workspace10 "10music"
 
@@ -134,7 +134,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 ## get calls by $ xprop
 ## assign [class="Emacs"] $workspace3
 ## assign [class="Nautilus"] $workspace2
-assign [class="Firefox"] $workspace1
+## assign [class="Firefox"] $workspace1
 assign [class="Google Play Music Desktop Player"] $workspace10
 
 
@@ -202,10 +202,10 @@ exec_always xcompmgr -n
 ## to implement a polybar
 
 ## Start-up
-exec firefox 
+## exec firefox 
 ## exec emacs
 ## start ranger via terminal
-exec --no-startup-id i3-msg workspace $workspace2; exec gnome-terminal -e ranger
+## exec --no-startup-id i3-msg workspace $workspace2; exec gnome-terminal -e ranger
 ## exec google-play-music-desktop-player
 
 # Pulse Audio controls
