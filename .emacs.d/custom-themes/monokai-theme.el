@@ -373,12 +373,13 @@ Also affects 'linum-mode' background."
                                           monokai-256-yellow)))))
 
    `(font-lock-function-name-face
-     ((,monokai-class (:foreground ,monokai-green))
+     ((,monokai-class (:foreground ,monokai-green
+                                   :weight normal))
       (,monokai-256-class (:foreground ,monokai-256-green))))
 
    `(font-lock-keyword-face
      ((,monokai-class (:foreground ,monokai-red
-                                   :weight normal))
+                                   :weight bold))
       (,monokai-256-class (:foreground ,monokai-256-red
                                         :weight normal))))
 
@@ -410,12 +411,14 @@ Also affects 'linum-mode' background."
 
    `(font-lock-type-face
      ((,monokai-class (:foreground ,monokai-green
+                                   :weight bold
                                    :italic nil))
       (,monokai-256-class (:foreground ,monokai-256-blue
                                         :italic nil))))
 
    `(font-lock-variable-name-face
-     ((,monokai-class (:foreground ,breezer-white))
+     ((,monokai-class (:foreground ,breezer-white
+                                   :weight bold))
       (,monokai-256-class (:foreground ,monokai-256-orange))))
 
    `(font-lock-warning-face
