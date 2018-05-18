@@ -47,14 +47,16 @@
                                (directory-files my-desktop-session-dir))
                           nil nil nil my-desktop-session-name-hist))
 
-(defun my-session-save (&optional name)
+(defun session-s (&optional name)
+  ;; SAVE
   (interactive)
   (unless name
     (setq name (my-desktop-get-session-name "Save session as: ")))
   (make-directory (concat my-desktop-session-dir name) t)
   (desktop-save (concat my-desktop-session-dir name) t))
 
-(defun my-session-read (&optional name)
+(defun session-r (&optional name)
+  ;; READ
   (interactive)
   (unless name
     (setq name (my-desktop-get-session-name "Load session: ")))

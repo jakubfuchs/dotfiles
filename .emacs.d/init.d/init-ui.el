@@ -53,11 +53,11 @@
 	      '(evil-window-right)
 	      '(evil-window-up)
 	      '(evil-window-down)))
-
   :config)
 
-;; Themes
 (cond
+ ((find-font (font-spec :name "Ubuntu Mono"))
+  (set-face-font 'default "Ubuntu Mono-10"))
  ((find-font (font-spec :name "Menlo"))
   (set-face-font 'default "Menlo-10"))
  ((find-font (font-spec :name "DejaVu Sans Mono"))
