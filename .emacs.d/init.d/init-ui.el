@@ -56,8 +56,8 @@
   :config)
 
 (cond
- ((find-font (font-spec :name "Ubuntu Mono"))
-  (set-face-font 'default "Ubuntu Mono-10"))
+((find-font (font-spec :name "Ubuntu Mono"))
+ (set-face-font 'default "Ubuntu Mono-10"))
  ((find-font (font-spec :name "Menlo"))
   (set-face-font 'default "Menlo-10"))
  ((find-font (font-spec :name "DejaVu Sans Mono"))
@@ -68,12 +68,13 @@
   (set-face-font 'default "Lucida sans Typewriter-11")))
 
 (add-to-list 'load-path "~/.emacs.d/custom-themes")
-(require 'color-theme-sanityinc-solarized)
+;;(require 'color-theme-sanityinc-solarized)
+(require 'monokai-theme)
 
-(use-package monokai-theme
-  :ensure t
-  :config
-  )
+;; (use-package monokai-theme
+  ;; :ensure
+  ;; :config
+  ;; )
 
 ;; (use-package arjen-grey-theme
   ;; :ensure t
@@ -213,6 +214,12 @@
 
 ;; (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
 ;; (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
+
+(use-package highlight-numbers
+  :ensure t
+  :init
+  (progn
+    (add-hook 'prog-mode-hook 'highlight-numbers-mode)))
 
 
 (provide 'init-ui)

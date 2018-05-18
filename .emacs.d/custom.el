@@ -9,17 +9,18 @@
  '(desktop-save-mode nil)
  '(direx:closed-icon "[►]")
  '(direx:open-icon "[▼]")
- '(eclim-eclipse-dirs (quote ("c:/Users/jakub/eclipse/eclipse.exe")))
- '(eclim-executable "c:/Users/jakub/eclipse/eclim.bat")
+ '(eclim-eclipse-dirs (quote ("~/eclipse")))
+ '(eclim-executable "~/eclipse/plugins/org.eclim_2.7.2/bin/eclim")
  '(package-selected-packages
    (quote
-    (smartparens company-emacs-eclim eclim emacs-eclim slime-company slime aggressive-indent aggresive-indent company clj-refactor cider clojure-refactor clojure-mode-extra-font-locking clojure-mode evil-org paredit helm direx powerline-evil key-chord airline-themes monokai-theme evil-leader evil use-package))))
+    (highlight-numbers smartparens company-emacs-eclim eclim emacs-eclim slime-company slime aggressive-indent aggresive-indent company clj-refactor cider clojure-refactor clojure-mode-extra-font-locking clojure-mode evil-org paredit helm direx powerline-evil key-chord airline-themes monokai-theme evil-leader evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(cider-fringe-good-face ((t (:foreground "#A6E22E"))))
+ '(highlight-numbers-number ((t (:foreground "#f47750"))))
  '(minibuffer-prompt ((t (:background "#272822" :foreground "#A6E22E" :box nil))))
  '(show-paren-match ((t (:inverse-video t :weight normal)))))
 
