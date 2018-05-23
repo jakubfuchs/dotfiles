@@ -18,7 +18,7 @@
     ";" 'comment-or-uncomment-region
     "x" 'org-capture
     "g" 'golden-ratio-mode
-    "w" 'evil-write
+    ;; "w" 'evil-write
     "b" 'helm-mini
     "f" 'switch-to-buffer-other-frame
     "Q" 'kill-this-buffer
@@ -43,7 +43,8 @@
     "e" 'eval-buffer)
 
   (defun elisp-my-print-last-sexp ()
-    "run the command to enter evil-insert, then eval-print-last-sexp"
+    "run the command to enter evil-insert,
+then eval-print-last-sexp and return to evil-normal"
     (interactive)
     (evil-append 1)
     (eval-print-last-sexp)
@@ -74,8 +75,8 @@
 (defun config-evil ()
   ;; CZ keyboard numbers-issue and hacks
   ;; (define-key evil-normal-state-map (kbd "$") 'evil-repeat)
-  (define-key evil-normal-state-map (kbd "$") 'evil-repeat-find-char)
-  (define-key evil-motion-state-map (kbd ";") 'evil-end-of-line)
+  ;; (define-key evil-normal-state-map (kbd "$") 'evil-repeat-find-char)
+  ;; (define-key evil-motion-state-map (kbd ";") 'evil-end-of-line)
   ;; (define-key evil-motion-state-map " " nil)
 
   ;; (windmove-default-keybindings)

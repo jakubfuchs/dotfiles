@@ -163,17 +163,17 @@ Also affects 'linum-mode' background."
   ;; :group 'monokai)
 
 (defcustom monokai-violet "#3daee9"
-  "Primary colors - brezzed to plasma blue"
+  "Primary colors - breezed to plasma blue"
   :type 'string
   :group 'monokai)
 
 (defcustom breezer-white "#fcfcfc"
-  "Primary colors - brezzed to paper white"
+  "Primary colors - breezed to paper white"
   :type 'string
   :group 'monokai)
 
 (defcustom breezer-orange "#f47750"
-  "Primary colors - brezzed to icon orange"
+  "Primary colors - breezed to icon orange"
   :type 'string
   :group 'monokai)
 
@@ -187,8 +187,8 @@ Also affects 'linum-mode' background."
   :type 'string
   :group 'monokai)
 
-(defcustom monokai-background "#272822"
-  "Adaptive colors - background"
+(defcustom monokai-background "#232629";; "#272822"
+  "Adaptive colors - background breezed to shade black"
   :type 'string
   :group 'monokai)
 

@@ -56,25 +56,25 @@
   :config)
 
 (cond
-((find-font (font-spec :name "Ubuntu Mono"))
- (set-face-font 'default "Ubuntu Mono-10"))
- ((find-font (font-spec :name "Menlo"))
-  (set-face-font 'default "Menlo-10"))
+ ;; ((find-font (font-spec :name "Ubuntu Mono"))
+  ;; (set-face-font 'default "Ubuntu Mono-10"))
+ ;; ((find-font (font-spec :name "Menlo"))
+  ;; (set-face-font 'default "Menlo-10"))
  ((find-font (font-spec :name "DejaVu Sans Mono"))
   (set-face-font 'default "DejaVu Sans Mono-10"))
- ((find-font (font-spec :name "inconsolata-notused"))
+ ((find-font (font-spec :name "inconsolata"))
   (set-face-font 'default "inconsolata-11"))
  ((find-font (font-spec :name "Lucida sans Typewriter"))
   (set-face-font 'default "Lucida sans Typewriter-11")))
 
 (add-to-list 'load-path "~/.emacs.d/custom-themes")
 ;;(require 'color-theme-sanityinc-solarized)
-(require 'monokai-theme)
+;; (require 'monokai-theme)
 
-;; (use-package monokai-theme
-  ;; :ensure
-  ;; :config
-  ;; )
+(use-package monokai-theme
+  :ensure t
+  :config
+  )
 
 ;; (use-package arjen-grey-theme
   ;; :ensure t
@@ -221,6 +221,13 @@
   (progn
     (add-hook 'prog-mode-hook 'highlight-numbers-mode)))
 
+(use-package adoc-mode
+  :ensure t
+  :init
+  (progn
+    (add-to-list 'auto-mode-alist
+                 (cons "\\.asciidoc\\'" 'adoc-mode))
+    (add-to-list 'auto-mode-alist
+                 (cons "\\.txt\\'" 'adoc-mode))))
 
 (provide 'init-ui)
-

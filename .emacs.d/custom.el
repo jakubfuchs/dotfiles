@@ -13,7 +13,7 @@
  '(eclim-executable "~/eclipse/plugins/org.eclim_2.7.2/bin/eclim")
  '(package-selected-packages
    (quote
-    (highlight-numbers smartparens company-emacs-eclim eclim emacs-eclim slime-company slime aggressive-indent aggresive-indent company clj-refactor cider clojure-refactor clojure-mode-extra-font-locking clojure-mode evil-org paredit helm direx powerline-evil key-chord airline-themes monokai-theme evil-leader evil use-package))))
+    (adoc-mode highlight-numbers smartparens company-emacs-eclim eclim emacs-eclim slime-company slime aggressive-indent aggresive-indent company clj-refactor cider clojure-refactor clojure-mode-extra-font-locking clojure-mode evil-org paredit helm direx powerline-evil key-chord airline-themes monokai-theme evil-leader evil use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -22,6 +22,11 @@
  '(cider-fringe-good-face ((t (:foreground "#A6E22E"))))
  '(highlight-numbers-number ((t (:foreground "#f47750"))))
  '(minibuffer-prompt ((t (:background "#272822" :foreground "#A6E22E" :box nil))))
+ '(rainbow-delimiters-depth-1-face ((t (:foreground "#f92672"))))
+ '(rainbow-delimiters-depth-2-face ((t (:foreground "#AE81FF"))))
+ '(rainbow-delimiters-depth-3-face ((t (:foreground "#A6E22E"))))
+ '(rainbow-delimiters-depth-4-face ((t (:foreground "#3daee9"))))
+ '(rainbow-delimiters-depth-7-face ((t (:foreground "#fcfcfc"))))
  '(show-paren-match ((t (:inverse-video t :weight normal)))))
 
 ;; UTILITIES
@@ -48,7 +53,7 @@
                                (directory-files my-desktop-session-dir))
                           nil nil nil my-desktop-session-name-hist))
 
-(defun session-s (&optional name)
+(defun session-save (&optional name)
   ;; SAVE
   (interactive)
   (unless name
@@ -56,7 +61,7 @@
   (make-directory (concat my-desktop-session-dir name) t)
   (desktop-save (concat my-desktop-session-dir name) t))
 
-(defun session-r (&optional name)
+(defun session-read (&optional name)
   ;; READ
   (interactive)
   (unless name
