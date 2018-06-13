@@ -1,9 +1,14 @@
+(add-hook 'java-mode-hook (lambda ()
+                            (setq c-basic-offset 2
+                                  tab-width 2
+                                  indent-tabs-mode t)))
+
 (use-package eclim
   :ensure t
   :init
   (progn
     (require 'eclim)
-    (setq eclimd-autostart t)
+    ;; (setq eclimd-autostart t)
     )
   :config
   (defun my-java-mode-hook ()

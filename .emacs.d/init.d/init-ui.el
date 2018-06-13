@@ -69,12 +69,13 @@
 
 (add-to-list 'load-path "~/.emacs.d/custom-themes")
 ;;(require 'color-theme-sanityinc-solarized)
-;; (require 'monokai-theme)
+;; (load-theme 'wombat)
+(require 'monokai-theme)
 
-(use-package monokai-theme
-  :ensure t
-  :config
-  )
+;; (use-package monokai-theme
+  ;; :ensure t
+  ;; :config
+  ;; )
 
 ;; (use-package arjen-grey-theme
   ;; :ensure t

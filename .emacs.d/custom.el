@@ -3,6 +3,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode nil)
+ '(column-number-mode t)
  '(default-frame-alist (quote ((undecorated . t))))
  '(desktop-path (quote ("~/.emacs.d/desktop" "~")))
  '(desktop-save nil)
@@ -13,7 +15,9 @@
  '(eclim-executable "~/eclipse/plugins/org.eclim_2.7.2/bin/eclim")
  '(package-selected-packages
    (quote
-    (adoc-mode highlight-numbers smartparens company-emacs-eclim eclim emacs-eclim slime-company slime aggressive-indent aggresive-indent company clj-refactor cider clojure-refactor clojure-mode-extra-font-locking clojure-mode evil-org paredit helm direx powerline-evil key-chord airline-themes monokai-theme evil-leader evil use-package))))
+    (adoc-mode highlight-numbers smartparens company-emacs-eclim eclim emacs-eclim slime-company slime aggressive-indent aggresive-indent company clj-refactor cider clojure-refactor clojure-mode-extra-font-locking clojure-mode evil-org paredit helm direx powerline-evil key-chord airline-themes monokai-theme evil-leader evil use-package)))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

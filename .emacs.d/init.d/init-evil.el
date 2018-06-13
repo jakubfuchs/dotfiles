@@ -15,6 +15,7 @@
     "D" 'dired
     "d" 'direx:jump-to-directory
     ;; "i" 'parinfer-toggle-mode
+    "`" 'toggle-menu-bar-mode-from-frame
     ";" 'comment-or-uncomment-region
     "x" 'org-capture
     "g" 'golden-ratio-mode
@@ -127,12 +128,12 @@ then eval-print-last-sexp and return to evil-normal"
     (global-evil-leader-mode)
     (config-evil-leader)
 
-  (use-package key-chord
-    :ensure t
-    :config
-    (key-chord-mode 1)
-    (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
-    (key-chord-define evil-insert-state-map "kj" 'evil-normal-state))
+  ;; (use-package key-chord
+  ;;   :ensure t
+  ;;   :config
+  ;;   (key-chord-mode 1)
+  ;;   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+  ;;   (key-chord-define evil-insert-state-map "kj" 'evil-normal-state))
 
 ;;  (use-package evil-orgmode
 ;;    :ensure t
