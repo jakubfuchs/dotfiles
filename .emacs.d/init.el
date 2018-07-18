@@ -36,7 +36,7 @@
 (blink-cursor-mode 0)
 (setq vc-follow-symlinks t)
 (setq large-file-warning-threshold nil)
-(setq split-width-threshold nil)
+(setq split-width-threshold 1)
 (setq custom-safe-themes t)
 (column-number-mode t)
 (setq tab-width 2)
@@ -52,7 +52,7 @@
       (concat ";; NOTHING IS WORSE THAN AN ITCH YOU CAN NEVER\n"
               ";; ╔═╗┌─┐┬─┐┌─┐┌┬┐┌─┐┬ ┬\n"
               ";; ╚═╗│  ├┬┘├─┤ │ │  ├─┤\n"
-              ";; ╚═╝└─┘┴└─┴ ┴ ┴ └─┘┴ ┴\n"))
+              ";; ╚═╝└─┘┴└─┴ ┴ ┴ └─┘┴ ┴"))
 ;; Removes *scratch* from buffer after the mode has been set.
 ;; (defun remove-scratch-buffer ()
   ;; (if (get-buffer "*scratch*")

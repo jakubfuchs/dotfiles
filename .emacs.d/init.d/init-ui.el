@@ -60,10 +60,10 @@
   ;; (set-face-font 'default "Ubuntu Mono-10"))
  ;; ((find-font (font-spec :name "Menlo"))
   ;; (set-face-font 'default "Menlo-10"))
+ ((find-font (font-spec :name "Monospace"))
+  (set-face-font 'default "Monospace-10"))
  ((find-font (font-spec :name "DejaVu Sans Mono"))
   (set-face-font 'default "DejaVu Sans Mono-10"))
- ((find-font (font-spec :name "inconsolata"))
-  (set-face-font 'default "inconsolata-11"))
  ((find-font (font-spec :name "Lucida sans Typewriter"))
   (set-face-font 'default "Lucida sans Typewriter-11")))
 

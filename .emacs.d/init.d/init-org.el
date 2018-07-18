@@ -11,7 +11,7 @@
   (evil-org-agenda-set-keys))
 
 ;; org settings
-(add-hook 'org-mode-hook 'nlinum-relative-mode)
+;; (add-hook 'org-mode-hook 'nlinum-relative-mode)
 (setq org-startup-indented t)
 (setq org-todo-keywords
       '((sequence "TODO(t!)" "NEXT(n!)" "|" "DONE(d!)" "CANCELED(c@/!)")))

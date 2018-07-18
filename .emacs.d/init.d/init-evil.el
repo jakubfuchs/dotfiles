@@ -64,8 +64,8 @@ then eval-print-last-sexp and return to evil-normal"
   ;; mapping for clojure coding
   (evil-leader/set-key-for-mode 'clojure-mode
     "v" 'cider-jump-to-var
-    ")" 'cider-my-eval-last-sexp
-    "." 'cider-eval-defun-at-point
+    "." 'cider-my-eval-last-sexp
+    ")" 'cider-eval-defun-at-point
     "e" 'cider-my-save-and-load
     "c" 'cider-switch-to-last-clojure-buffer
     "r" 'cider-switch-to-repl-buffer)
@@ -79,6 +79,9 @@ then eval-print-last-sexp and return to evil-normal"
   ;; (define-key evil-normal-state-map (kbd "$") 'evil-repeat-find-char)
   ;; (define-key evil-motion-state-map (kbd ";") 'evil-end-of-line)
   ;; (define-key evil-motion-state-map " " nil)
+
+  ;; menu key mapping
+  (global-set-key [menu] 'menu-bar-open)
 
   ;; (windmove-default-keybindings)
   (define-key evil-normal-state-map (kbd "C-w C-l") 'evil-window-right)

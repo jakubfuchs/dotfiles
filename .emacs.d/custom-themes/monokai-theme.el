@@ -379,15 +379,15 @@ Also affects 'linum-mode' background."
 
    `(font-lock-keyword-face
      ((,monokai-class (:foreground ,monokai-red
-                                   :weight bold))
+                                   :weight normal))
       (,monokai-256-class (:foreground ,monokai-256-red
                                         :weight normal))))
 
    `(font-lock-negation-char-face
      ((,monokai-class (:foreground ,breezer-orange ;;monokai-yellow
-                                   :weight bold))
+                                   :weight normal))
       (,monokai-256-class (:foreground ,monokai-256-yellow
-                                        :weight bold))))
+                                        :weight normal))))
 
    `(font-lock-preprocessor-face
      ((,monokai-class (:foreground ,monokai-red))
@@ -411,23 +411,23 @@ Also affects 'linum-mode' background."
 
    `(font-lock-type-face
      ((,monokai-class (:foreground ,monokai-green
-                                   :weight bold
+                                   :weight normal
                                    :italic nil))
       (,monokai-256-class (:foreground ,monokai-256-blue
                                         :italic nil))))
 
    `(font-lock-variable-name-face
      ((,monokai-class (:foreground ,breezer-white
-                                   :weight bold))
+                                   :weight normal))
       (,monokai-256-class (:foreground ,monokai-256-orange))))
 
    `(font-lock-warning-face
      ((,monokai-class (:foreground ,monokai-orange
-                                   :weight bold
+                                   :weight normal
                                    :italic t
                                    :underline t))
       (,monokai-256-class (:foreground ,monokai-256-orange
-                                        :weight bold
+                                        :weight normal
                                         :italic t
                                         :underline t))))
 
@@ -473,10 +473,10 @@ Also affects 'linum-mode' background."
    `(match
      ((,monokai-class (:background ,monokai-green
                                    :foreground ,monokai-background
-                                   :weight bold))
+                                   :weight normal))
       (,monokai-256-class (:background ,monokai-256-green
                                         :foreground ,monokai-256-background
-                                        :weight bold))))
+                                        :weight normal))))
 
    `(cursor
      ((,monokai-class (:foreground ,monokai-background
@@ -511,10 +511,10 @@ Also affects 'linum-mode' background."
    `(link
      ((,monokai-class (:foreground ,monokai-blue
                                    :underline t
-                                   :weight bold))
+                                   :weight normal))
       (,monokai-256-class (:foreground ,monokai-256-blue
                                         :underline t
-                                        :weight bold))))
+                                        :weight normal))))
 
    `(link-visited
      ((,monokai-class (:foreground ,monokai-violet
