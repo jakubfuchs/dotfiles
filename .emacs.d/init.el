@@ -33,7 +33,7 @@
 
 (setq visible-bell t)
 (setq ring-bell-function 'ignore)
-(blink-cursor-mode 0)
+(blink-cursor-mode t)
 (setq vc-follow-symlinks t)
 (setq large-file-warning-threshold nil)
 (setq split-width-threshold 1)

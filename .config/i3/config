@@ -178,7 +178,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        font pango:Dejavu sans Mono 9
+        font pango:Dejavu sans Mono 8
         position top
         #tray_output none
         #status_command i3status
@@ -191,15 +191,25 @@ bar {
 }
 
 # MY-CUSTOMS
-bindsym $mod+shift+x exec i3lock
-exec_always feh --bg-scale /home/jak/Pictures/wallpaper.jpg
+# bindsym $mod+shift+x exec i3lock
+bindsym $mod+shift+x exec --no-startup-id ~/.config/i3/lock.sh
+exec_always feh --bg-scale /home/jak/Pictures/simonstalenhag/by_all_along.jpg
 exec_always xrandr --output VGA-1 --off --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off
 exec_always nm-applet
 # kill bluetooth (block/unblock)
 exec_always rfkill block bluetooth
 # Opacity
 exec_always xcompmgr -n
+# disable touchpad: id=13 (xinput list -> to get id number)
+# exec_always xinput -disable 11
+focus_follows_mouse no
+# Unclutter makes the mouse invisible after a brief period
+exec --no-startup-id unclutter
+# Torrent daemon:
+# exec --no-startup-id transmission-daemon
+
 ## to implement a polybar
+
 
 ## Start-up
 ## exec firefox 
