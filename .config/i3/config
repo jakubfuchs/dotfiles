@@ -192,6 +192,7 @@ bar {
 
 # MY-CUSTOMS
 # bindsym $mod+shift+x exec i3lock
+# workspace_layout stacking
 bindsym $mod+shift+x exec --no-startup-id ~/.config/i3/lock.sh
 exec_always feh --bg-scale /home/jak/Pictures/simonstalenhag/by_all_along.jpg
 exec_always xrandr --output VGA-1 --off --output LVDS-1 --primary --mode 1366x768 --pos 0x0 --rotate normal --output HDMI-3 --off --output HDMI-2 --off --output HDMI-1 --off --output DP-3 --off --output DP-2 --off --output DP-1 --off
@@ -207,6 +208,9 @@ focus_follows_mouse no
 exec --no-startup-id unclutter
 # Torrent daemon:
 # exec --no-startup-id transmission-daemon
+exec yakuake
+for_window [instance="yakuake"] floating enable
+bindsym $mod+y exec yakuake
 
 ## to implement a polybar
 

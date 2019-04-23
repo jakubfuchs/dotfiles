@@ -36,7 +36,7 @@
 (blink-cursor-mode t)
 (setq vc-follow-symlinks t)
 (setq large-file-warning-threshold nil)
-(setq split-width-threshold 1)
+(setq split-width-threshold nil)
 (setq custom-safe-themes t)
 (column-number-mode t)
 (setq tab-width 2)
@@ -80,5 +80,5 @@
 (push '("\\.\\(?:frm\\|\\(?:ba\\|cl\\|vb\\)s\\)\\'" . visual-basic-mode)
       auto-mode-alist)
 
-;; Init my custom startup desktop
+;; Initialize my custom startup desktop
 (my-startup-read)

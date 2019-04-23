@@ -206,13 +206,17 @@
     (add-hook 'clojurec-mode-hook 'paredit-mode)
     (add-hook 'cider-repl-mode-hook 'paredit-mode)))
 
-;; ..smartparens variant:
-;; (use-package smartparens-config
-    ;; :ensure smartparens
-    ;; :config
+;; smartparens variant:
+(use-package smartparens-config
+    :ensure smartparens
+    :config
+    (progn
+      (add-hook 'inferior-python-mode-hook 'smartparens-mode)
+      (add-hook 'python-mode-hook 'smartparens-mode)))
     ;; (progn
       ;; (show-smartparens-global-mode t)))
 
+;; (add-hook 'python-mode-hook 'turn-on-smartparens-strict-mode)
 ;; (add-hook 'prog-mode-hook 'turn-on-smartparens-strict-mode)
 ;; (add-hook 'markdown-mode-hook 'turn-on-smartparens-strict-mode)
 

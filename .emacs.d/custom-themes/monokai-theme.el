@@ -106,8 +106,8 @@ Also affects 'linum-mode' background."
   ;; :type 'string
   ;; :group 'monokai)
 
-(defcustom monokai-yellow "#c9ce3b"
-  "Primary colors - breezed to sunbeam yellow"
+(defcustom monokai-yellow "#a3d109";; "#c9ce3b"
+  "Primary colors - breezed to sunbeam green" ;; sunbeam yellow
   :type 'string
   :group 'monokai)
 
