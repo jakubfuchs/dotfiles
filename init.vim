@@ -1,6 +1,4 @@
-" -----------------------------------
-"                 PLUG
-" -----------------------------------
+" PLUG {{{
 " Install vim-plug if is not pressent
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
     " Ensure all needed directories exist
@@ -14,6 +12,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'nanotech/jellybeans.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'jacoborus/tender.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/paredit.vim'
@@ -22,11 +21,13 @@ Plug 'vim-scripts/mru.vim'
 "" https://github.com/sandeepcr529/Buffet.vim
 Plug 'sandeepcr529/Buffet.vim'
 
-"" TODO FZF searching instead of ctrlP and ag
+"" TODO FZF searching instead?
+Plug 'rking/ag.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 
 "" https://github.com/Raimondi/delimitMate
 """ help with bracket, quotes etc... autocompletion
-"Plug 'Raimondi/delimitMate'
+Plug 'Raimondi/delimitMate'
 
 "" autocomplete insert mode tables
 Plug 'Shougo/deoplete.nvim'
@@ -47,14 +48,14 @@ Plug 'thinca/vim-ft-clojure'
 Plug 'clojure-vim/async-clj-omni'
 Plug 'w0rp/ale'
 
-"" TODO goodies to check:
+""
 Plug 'tpope/vim-repeat'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
-Plug 'ryanoasis/vim-devicons'
+"Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-endwise'
 Plug 'bfredl/nvim-miniyank'
 Plug 'justinmk/vim-sneak'
@@ -65,9 +66,9 @@ Plug 'humorless/vim-kibit'
 "Plug 'fatih/vim-go'
 
 call plug#end()
+" }}}
 
-" Colors and Themes
-" ---------------------------------------------
+" Colors and Themes {{{
 syntax on
 let g:jellybeans_use_gui_italics = 0
 let g:jellybeans_overrides = {
@@ -86,34 +87,18 @@ let g:jellybeans_overrides = {
             \}
 
 set background=dark
-colorscheme jellybeans
+"colorscheme jellybeans
+colorscheme apprentice
+" }}}
 
-" Airline
-" ---------------------------------------------
-let g:airline_theme = 'tender'
+" Airline {{{
+let g:airline_theme = 'apprentice'
+"let g:airline_theme = 'tender'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#whitespace#enabled = 0
+" }}}
 
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = 'Ɇ'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" Basic Options
-" ---------------------------------------------
+" Basic Options {{{
 set nocompatible
 set termguicolors
 set modelines=0
@@ -198,8 +183,12 @@ augroup END
 "Disabling concealing json syntax bu default
 let g:vim_json_syntax_conceal = 0
 
-" KeyMapping
-" -------------------------------------------------
+" 'gf' opens file under cursor in a new vertical split
+nnoremap gf :vertical windcmd f<CR>
+
+" }}}
+
+" KeyMapping {{{
 let mapleader=','
 nnoremap <Leader>q :q<CR>
 nnoremap <leader><space> :noh<cr>
@@ -235,9 +224,9 @@ nnoremap N Nzzzv
 nnoremap g; g;zz
 nnoremap g, g,zz
 nnoremap <c-o> <c-o>zz
+" }}}
 
-" Paredit
-" -------------------------------------------------
+" Paredit {{{
 let g:paredit_leader='\'
 let g:paredit_smartjump=1
 let g:paredit_electric_return=1
@@ -245,9 +234,54 @@ let g:paredit_matchlines=300
 let g:paredit_shortmaps=0
 let g:sexp_enable_insert_mode_mappings=0
 au FileType lfe call PareditInitBuffer()
+" }}}
 
-" Bufferline
-" -------------------------------------------------
+" CtrlP {{{
+"let g:ctrlp_map = '<leader>z'
+let g:ctrlp_cmd = 'CtrlP'
+nnoremap <C-p> :<C-u>CtrlP<CR>
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+            \ 'file': '\v\.(exe|so|dll|orig)$'
+            \ }
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+" if executable('rg')
+"   set grepprg=rg\ --color=never
+"   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+" endif
+"
+cnoreabbrev Ag Ag!
+
+noremap <silent> qq :Bufferlist<CR>
+" }}}
+
+" Vim {{{
+augroup ft_vim
+    au!
+
+    au FileType vim setlocal foldmethod=marker
+    au FileType help setlocal textwidth=78
+    au BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
+augroup END
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
+" }}}
+
+" Bufferline & LineReturn {{{
 let g:bufferline_echo = 0
 
 " Line Return
@@ -261,25 +295,25 @@ augroup line_return
         \     execute 'normal! g`"zvzz' |
         \ endif
 augroup END
+" }}}
 
-" Rainbow Partnheses
-" -------------------------------------------------
+" Rainbow Partnheses {{{
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+" }}}
 
 " Cursorline {{{
 " Only show cursorline in the current window and in normal mode.
-" -------------------------------------------------
 augroup cline
     au!
     au WinLeave,InsertEnter * set nocursorline
     au WinEnter,InsertLeave * set cursorline
 augroup END
+" }}}
 
-" Wildmenu completion
-" -------------------------------------------------
+" Wildmenu completion {{{
 set wildmenu
 set wildmode=list:longest
 
@@ -303,11 +337,10 @@ set wildignore+=classes
 set wildignore+=lib
 
 " Highlight VCS conflict markers
-" -------------------------------------------------
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+" }}}
 
-" NerdTree
-" -------------------------------------------------
+" NerdTree {{{
 let NERDTreeIgnore = ['\.pyc$', '\.orig$']
 let NERDTreeQuitOnOpen=1
 
@@ -328,9 +361,49 @@ function! NTImprovedToggle()
     endif
 endfunction
 nmap <leader>d :call NTImprovedToggle()<CR>
+" }}}
 
-" deoplete
-" ---------------------------------------------
+" Folding {{{
+set foldlevelstart=0
+
+" Space to toggle folds.
+nnoremap <Space> za
+vnoremap <Space> za
+
+" Make zO recursively open whatever fold we're in, even if it's partially open.
+nnoremap zO zczO
+
+" "Focus" the current line.  Basically:
+"
+" 1. Close all folds.
+" 2. Open just the folds containing the current line.
+" 3. Move the line to a little bit (15 lines) above the center of the screen.
+" 4. Pulse the cursor line.  My eyes are bad.
+"
+" This mapping wipes out the z mark, which I never use.
+"
+" I use :sus for the rare times I want to actually background Vim.
+nnoremap <c-z> mzzMzvzz15<c-e>`z:Pulse<cr>
+
+function! MyFoldText() " {{{
+    let line = getline(v:foldstart)
+
+    let nucolwidth = &fdc + &number * &numberwidth
+    let windowwidth = winwidth(0) - nucolwidth - 3
+    let foldedlinecount = v:foldend - v:foldstart
+
+    " expand tabs into spaces
+    let onetab = strpart('          ', 0, &tabstop)
+    let line = substitute(line, '\t', onetab, 'g')
+
+    let line = strpart(line, 0, windowwidth - 2 -len(foldedlinecount))
+    let fillcharcount = windowwidth - len(line) - len(foldedlinecount)
+    return line . '…' . repeat(" ",fillcharcount) . foldedlinecount . '…' . ' '
+endfunction " }}}
+set foldtext=MyFoldText()
+" }}}
+
+" deoplete {{{
 let g:acp_enableAtStartup = 0
 let g:deoplete#enable_at_startup = 1 
 let g:necoghc_enable_detailed_browse = 1
@@ -341,9 +414,9 @@ autocmd CompleteDone * pclose
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:deoplete#keyword_patterns = {}
 let g:deoplete#keyword_patterns.clojure = '[\w!$%&*+/:<=>?@\^_~\-\.#]*'
+" }}}
 
-" ALE
-" ---------------------------------------------
+" ALE {{{
 let g:ale_open_list=1
 let g:ale_lint_on_insert_leave=1
 let g:ale_lint_on_text_changed='normal'
@@ -352,9 +425,11 @@ let g:ale_linters = {
 \   'clojure': ['joker'],
 \}
 let g:ale_linters_explicit = 1
+"let g:ale_list_vertical = 1
 
-" Clojure
-" --------------------------------------------------------------------------------------------
+" }}}
+
+" Clojure {{{
 set lispwords+=ns,if-not,match,when-not,defstate,go-loop
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let', '^if-not', '^go-loop']
 let g:clojure_fold_extra = [
@@ -415,63 +490,63 @@ augroup ft_clojure
 augroup END
 au FileType clojure let loaded_delimitMate = 0
 autocmd FileType clojure nnoremap <buffer> <silent> <leader>rx :Eval (do (require 'clojure.tools.namespace.repl) (clojure.tools.namespace.repl/set-refresh-dirs "src/clj" "src/cljc") (clojure.tools.namespace.repl/refresh))<cr>
+" }}}
 
-" MiniYank
-" -------------------------------------------------------
+" MiniYank {{{
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoPut)
 map <leader>p <Plug>(miniyank-startput)
 map <leader>P <Plug>(miniyank-startPut)
 map <leader>n <Plug>(miniyank-cycle)
 let g:miniyank_filename = $HOME."/.miniyank.mpack"
+" }}}
 
-" WebDevIcons
-" -------------------------------------------------------
+" WebDevIcons " {{{
 " loading the plugin 
-let g:webdevicons_enable = 1
+"let g:webdevicons_enable = 1
 
 " adding the flags to NERDTree 
-let g:webdevicons_enable_nerdtree = 1
+" let g:webdevicons_enable_nerdtree = 1
 
 " adding the custom source to unite 
-let g:webdevicons_enable_unite = 1
+" let g:webdevicons_enable_unite = 1
 
 " adding to vim-airline's tabline 
-let g:webdevicons_enable_airline_tabline = 1
+" let g:webdevicons_enable_airline_tabline = 1
 
 " adding to vim-airline's statusline 
-let g:webdevicons_enable_airline_statusline = 1
+" let g:webdevicons_enable_airline_statusline = 1
 
 " ctrlp glyphs
-let g:webdevicons_enable_ctrlp = 1
+" let g:webdevicons_enable_ctrlp = 1
 
 " turn on/off file node glyph decorations (not particularly useful)
-let g:WebDevIconsUnicodeDecorateFileNodes = 1
+" let g:WebDevIconsUnicodeDecorateFileNodes = 1
 
 " use double-width(1) or single-width(0) glyphs 
 " only manipulates padding, has no effect on terminal or set(guifont) font
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+" let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
 
 " whether or not to show the nerdtree brackets around flags 
-let g:webdevicons_conceal_nerdtree_brackets = 1
+" let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " the amount of space to use after the glyph character (default ' ')
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 " Force extra padding in NERDTree so that the filetype icons line up vertically 
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+" let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+" }}}
 
-" Sneak
-" ---------------------------------------------
+" Sneak {{{
 let g:sneak#s_next = 1
 let g:sneak#label = 1
+" }}}
 
-" Startify
-" ---------------------------------------------
+" Startify {{{
 let g:startify_change_to_dir = 0
+" }}}
 
-" Buffers
-" ---------------------------------------------
+" Buffers {{{
 function! BufSel(pattern)
   let bufcount = bufnr("$")
   let currbufnr = 1
@@ -504,7 +579,7 @@ endfunction
 command! -nargs=1 Bs :call BufSel("<args>")
 "Map to key: BufferList with number selection
 nnoremap <Leader>b :buffers<CR>:buffer<Space>
-" "---------------------------------------------
+" }}}
 
 ""filetype on
 ""filetype indent on
